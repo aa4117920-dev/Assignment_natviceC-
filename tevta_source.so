@@ -1,0 +1,935 @@
+#include <iostream>
+#include <cstdio>      // conio.h ki jagah (standard input/output)
+#include <cstdlib>     
+#include <unistd.h>    // windows.h ki jagah (Sleep aur system functions ke liye)
+#include <string.h>
+using namespace std;
+
+const int range=5; 
+    int getingArray(int arr[],int range);
+    int givingArray(int arr[],int range);
+
+                                ///Main function are place in end of code///
+ void main_main(),funct1(),funct2(),funct3(),funct4(),funct5();
+ void funct6(),funct7(),funct8(),funct9(),funct10();
+
+ // HANDLE h ko hata kar simple rakha hai kyunke APK terminal handles use nahi karta
+ void sending_Request(char Server[],int color);
+ void last_destination(char Server[],int color);
+
+ //functions:  
+
+// getting array data and return it
+
+//Array input getting function 
+    int getingArray(int arr[],int range){
+for(int ind=0;ind<range;ind++){
+    cout<<"\n\tEnter your number:";
+    cin>>arr[ind];
+}       
+    return 0;
+}
+
+//Array output getting function 
+    int givingArray(int arr[],int range){
+   for(int ind=0;ind<range;ind++){
+    // Sleep(300) ki jagah usleep(300000) Android/APK terminal ke liye
+    usleep(300000); 
+    cout<<"\n\t[ index # "<<ind<<"] :"<<arr[ind];
+}//loop close
+    return 0;
+}
+
+// Assignment 1 function
+
+void funct1(char Server[],int color){ // HANDLE h hata diya hai
+char inp;
+int arr[range];
+
+   // Windows specific Title hata kar simple print rakha hai
+cout << "\033]0;Machine no 1\007"; // ANSI code for terminal title (if supported)
+cout << "\033[2J\033[1;1H"; // system("cls") ka replacement
+
+cout<<"\n\n\t\t Array get /give machine \n";
+cout<<"\n\tEnter number on array data structure:\n\n";
+getingArray(arr,range);
+
+cout<<"\n\n\tIf you can see your output data press 's'\n\t";
+cout<<"If you can exit Press 'e'";
+
+// APK terminal ke liye cin use kiya hai taake getch ka masla na ho
+cin >> inp; 
+
+if(inp=='s'|| inp=='S'){
+givingArray(arr,range);
+}
+
+else if(inp=='e'||inp=='E'){
+exit(0);
+}
+ last_destination(Server,color);
+}
+// Assignment 2 function
+
+void funct2(char Server[],int color){ // HANDLE h hata diya hai
+char inp;
+int arr[range],result=0;
+
+   // Windows specific settings ka replacement
+cout << "\033]0;Machine no 2\007"; 
+cout << "\033[2J\033[1;1H"; 
+
+
+cout<<"\n\n\t\t Sum of Array Numbers Machine \n";
+cout<<"\n\tEnter your number and get sum:\n\n";
+getingArray(arr,range);
+
+cout<<"\n\n\tIf you can see your output data press 's'\n\t";
+cout<<"If you can exit Press 'e'";
+
+// APK terminal ke liye cin use kiya hai
+cin >> inp; 
+
+// Sleep(500) ki jagah usleep
+usleep(500000); 
+
+if(inp=='s'|| inp=='S'){
+for(int ind_b=0;ind_b<5;ind_b++){
+  result+=arr[ind_b];  
+}//loop close
+cout<<"\n\n\tResult :"<<result;
+}
+
+else if(inp=='e'||inp=='E'){
+exit(0);
+}
+
+// getch() ki jagah aik dummy cin taake screen ruki rahe
+cout << "\n\nPress any key to continue...";
+cin >> inp;
+
+ last_destination(Server,color);
+}
+                // Assignment 3 function
+
+void funct3(char Server[],int color,HANDLE h){
+int arr[range];
+char inp;
+int box;
+
+   //windows setting 
+SetConsoleTitle("Machine no 3");
+system("cls");
+
+
+cout<<"\n\t\t\4 \4 Find Largest Number in Array Machine \4 \4\n\n";
+cout<<"Enter your numbers:\n";
+for(int ind_a=0;ind_a<5;ind_a++){
+    cout<<"\n\tEnter your number"<<ind_a+1<<" :";
+    cin>>arr[ind_a];
+}
+// finding largest number
+for(int ind_b=0;ind_b<5;ind_b++){
+                    // Checking indexs are available
+for(int ind_c=0;ind_c<5;ind_c++){
+
+if(arr[ind_c]<arr[ind_c+1]){
+box=arr[ind_c];
+arr[ind_c]=arr[ind_c+1];
+arr[ind_c+1]=box;
+}
+
+}
+
+}
+cout<<"\n\n\tIf you can see your output data press 's'\n\t";
+cout<<"If you can exit Press 'e'";
+inp=getch();
+Sleep(500);
+if(inp=='s'|| inp=='S'){
+cout<<"\n\n\tLargest number :"<<arr[0];
+}
+
+else if(inp=='e'||inp=='E'){
+exit(0);
+}
+
+getch();
+ last_destination(Server,color,h);
+}
+// Assignment 4 function
+
+void funct4(char Server[],int color){ // HANDLE h hata diya hai
+int arr[5];
+char inp; // int inp ko char inp kiya hai taake s/e sahi read ho
+
+        // Windows specific settings ka replacement
+cout << "\033]0;Machine no 4\007"; 
+cout << "\033[2J\033[1;1H"; 
+
+cout<<"\n\n\t Reverse the Array List Machine\n";
+cout<<"\tEnter you numbers:\n";
+
+for(int ind_a=0;ind_a<5;ind_a++){
+    cout<<"\n\tEnter your number"<<ind_a+1<<" :";
+    cin>>arr[ind_a];
+}
+
+cout<<"\n\n\tIf you can see your output data press 's'\n\t";
+cout<<"If you can exit Press 'e'";
+
+// APK terminal ke liye cin use kiya hai
+cin >> inp;
+
+if(inp=='s'|| inp=='S'){
+for(int ind_b=4;ind_b>=0;ind_b-=1){
+    cout<<"\n\t[~ Number"<<ind_b+1<<" :"<<arr[ind_b]<<"]";
+}
+}
+
+else if(inp=='e'||inp=='E'){
+exit(0);
+}
+
+// getch() ki jagah cin taake screen ruki rahe
+cout << "\n\nPress any key to continue...";
+cin >> inp;
+
+ last_destination(Server,color);
+}
+// Assignment 5 function
+
+void funct5(char Server[],int color){ // HANDLE h hata diya hai
+
+int arr[range],serperate[2][5];
+char inp; // int inp ko char kiya hai
+int ind_odd=0,ind_even=0;
+
+        // Windows specific settings ka replacement
+cout << "\033]0;Machine no 5\007"; 
+cout << "\033[2J\033[1;1H"; 
+
+cout<<"\n\t\tSeparate Odd and Even Numbers Machine\n";
+cout<<"\tEnter your number list one by one:";
+getingArray(arr,range);
+
+                    //processing
+        //seperating odd even
+for(int ind_b=0;ind_b<range;ind_b++){
+if(arr[ind_b]%2==0){
+serperate[1][ind_even]=arr[ind_b] ;   
+    ind_even+=1;
+}
+else{
+    serperate[0][ind_odd]=arr[ind_b];   
+     ind_odd+=1;
+}
+
+}//loop close
+cout<<"\n\n\tIf you can see your output data press 's'\n\t";
+cout<<"If you can exit Press 'e'";
+                    //input see exit
+cin >> inp; // getch() ki jagah cin
+
+
+//output
+if(inp=='s'|| inp=='S'){
+int range_f=2;
+int child_range=1;
+
+for(int ind_c=0;ind_c<range_f;ind_c++){
+usleep(500000); // Sleep(500)
+cout << "\033[1;31m"; // SetConsoleTextAttribute(h,4) -> Red color
+    if(ind_c==0){
+child_range=ind_odd;
+cout<<"\nOdd :";
+    }
+    else{
+child_range=ind_even;
+cout<<"\nEven :";
+    }
+cout << "\033[0m"; // SetConsoleTextAttribute(h,7) -> White/Reset
+for(int ind_d=0;ind_d<child_range;ind_d++){
+usleep(80000); // Sleep(80)
+cout<<"\n~ Index # ["<<ind_c<<"]["<<ind_d<<"] Value is :"<<serperate[ind_c][ind_d];
+}
+cout<<"\n";
+}
+
+cout << "\n\nPress any key to continue...";
+cin >> inp; // getch() replacement
+} //if condition
+
+
+else if(inp=='e'||inp=='E'){
+exit(0);
+}
+ last_destination(Server,color);
+}
+// Assignment 6 function
+
+void funct6(char Server[],int color){ // HANDLE h hata diya hai
+
+                    //data base
+    //steps data
+int range_step=3 , range_std=100;
+
+    //std data
+char steps [range_step] [50]= { "Select the range of your class","Enter your data like (name,rollno)","see your data in list" };
+
+int std_rollno[range_std] , mstd_rollno; 
+      
+      // string array
+string std_name[range_std] ;
+string  std_father[range_std] ;
+string std_city[range_std];
+string mstd_name;
+char inp_a;
+
+        //windows setting replacement
+cout << "\033]0;Machine no 6\007"; // Title
+            //clear screen
+cout << "\033[2J\033[1;1H"; // system("cls")
+
+
+// interface starting
+cout<<"\n\n\t\tCreate and Save New Records Machine\n\n";
+usleep(300000); // Sleep(300)
+cout<<"\t\tWe use, this machine in given steps - they are mention below:\n";
+        
+        //steps typing in order
+for(int ind_step=0;ind_step<range_step;ind_step++){
+usleep(100000); // Sleep(100)
+cout << "\033[1;33m"; // SetConsoleTextAttribute(h,6) -> Yellow/Gold
+cout<<"\n\t"<<ind_step+1;
+cout << "\033[0m"; // SetConsoleTextAttribute(h,7) -> Reset
+cout<<" "<<steps[ind_step]<<".";
+}
+
+            // getting array 
+
+
+            // selecting range
+cout << "\033[1;31m"; // SetConsoleTextAttribute(h,4) -> Red
+cout<<"\n\tSelect range of Class:";
+cout << "\033[0m"; // Reset
+cin>>range_std;
+
+    //data entery start stop on finish of range
+for(int ind_entry=0;ind_entry<range_std;ind_entry++){
+cout << "\033[2J\033[1;1H"; // system("cls")
+cout << "\033[1;32m"; // SetConsoleTextAttribute(h,2) -> Green
+cout<<"\n\t\t\t Data entry "<<ind_entry+1<<" \n";
+cout << "\033[0m"; // Reset
+
+cout<<"\n\tEnter your name:";    //NAME
+cin>>std_name[ind_entry];
+
+cout<<"\n\tEnter your Roll no:";    //ROLL NO
+cin>>std_rollno[ind_entry];
+
+cout<<"\n\tEnter your Father name:";    //FATHER NAME
+cin>>std_father[ind_entry];
+
+cout<<"\n\tEnter your city :";  //CITY NAME
+cin>>std_city[ind_entry];
+}
+
+usleep(300000); // Sleep(300)
+        
+        //  option see output and back
+cout<<"\n\n\tIf you can search the student data press 's'\n\t";
+cout<<"If you can exit Press 'e'";
+
+// APK terminal ke liye cin use kiya hai taake getch ka masla na ho
+cin >> inp_a;
+
+
+if(inp_a=='s'){
+
+    // title change
+cout << "\033]0;Searching std\007";
+cout << "\033[2J\033[1;1H"; 
+    
+    // window design setup
+cout<<"\n\n\t\t Searching student data \n";
+cout<<"\n\tEnter the student Name: ";
+cin>>mstd_name;
+cout<<"\n\tEnter the student rollno: ";
+cin>>mstd_rollno;
+
+if(mstd_rollno<4){
+    cout<<"You can use invalid number \n your number:"<<mstd_rollno;
+}
+
+else{
+    
+    // windows setting
+cout << "\033[2J\033[1;1H"; 
+cout << "\033]0;Searching ....\007";
+    
+    //seaching start
+
+    for(int ind_search=0;ind_search<range_std;ind_search++){
+usleep(100000); // Sleep(100)
+      //checking if enter name avialabe
+
+if(mstd_name==std_name[ind_search]){
+cout<<"\n\t~ student"<<ind_search+1<<"match";
+
+         // again next roll no checking they are aviable with right position 
+if(mstd_rollno==std_rollno[ind_search]){
+      
+// matched std before last output
+      cout<<"\n\t Student "<<ind_search+1<<" is matched";
+   
+   // show ouput
+
+            //windows setting 
+   usleep(1000000); // Sleep(1000)
+cout << "\033[2J\033[1;1H"; 
+cout << "\033]0;Result :\007";
+
+      //output screen 
+cout<<"\n\t\t Student \n";
+cout<<"\n\n\tStudent Name:";
+
+cout << "\033[1;33m"; // SetConsoleTextAttribute(h,6)
+cout<<std_name[ind_search];
+
+cout << "\033[0m"; // Reset
+cout<<"\n\tStudent roll no:"<<std_rollno[ind_search];
+cout<<"\n\tStudent father name:"<<std_father[ind_search];
+cout<<"\n\tStudent city:"<<std_city[ind_search];
+ break; //break the all use 
+
+}
+else{
+cout<<"\n\t ~ student"<<ind_search+1<<"roll was not match";
+
+}
+
+}//condition close
+
+}//loop close
+
+}
+
+  
+// checking if user use program or not
+
+        // declared var input data type interger
+char inp;
+cout<<"\n\n\tEnter any key to start the program and \nIf you back this program press 'b'";
+cin >> inp; // getch() replacement
+if(inp=='b'){last_destination(Server,color);}  
+
+
+}//if condition close
+
+else if(inp_a=='e'){
+exit(0);
+}
+
+//finish
+cin >> inp_a; // getch() replacement
+last_destination(Server,color);
+
+}   //function finish 6
+// Assignment 7 function
+
+void funct7(char Server[], int color) { // HANDLE h hata diya hai
+
+char key;
+int range_arr = 0, arr[100], inp_data; // Array size 100 rakha hai taake crash na ho
+
+// windows replacement
+cout << "\033[2J\033[1;1H"; // system("cls")
+cout << "\033]0;Machine no 7\007"; // SetConsoleTitle
+
+cout<<"\n\n\t\t Resize and Sort Array Machine \n";
+cout<<"\n\n\tShow step to using this machine :\n";
+cout << "\033[1;33m"; // SetConsoleTextAttribute(h,6) -> Yellow
+cout<<"\n\t1.Enter the range (0-9..n) of array";
+cout<<"\n\t2.Enter the data in array.";
+cout<<"\n\t3.See the data on your screen.";
+cout << "\033[0m"; // Reset to White
+cout<<"\n\n\tSelect the range of your data:";
+cin>>inp_data;
+
+// range updated
+range_arr=inp_data;
+
+//getting data on array
+cout << "\033[2J\033[1;1H"; 
+cout << "\033]0;Data Inserting\007";
+cout<<"\n\t\t\t Putting data on array \n";
+for(int ind_a=0; ind_a<range_arr; ind_a++){
+cout<<"\n\tEnter number # "<<ind_a+1<<" :";
+cin>>arr[ind_a];
+}
+
+//getting position
+cout<<"\n\n\tIf you can search the student data press 's'\n\t";
+cout<<"If you can exit Press 'e'";
+
+// APK terminal ke liye cin use kiya hai
+cin >> key;
+
+if(key=='s' || key=='S'){
+    cout << "\033[2J\033[1;1H"; 
+    cout << "\033]0;Showing data \007";
+    cout<<"\n\n\t\t\t Showing result \n\n";
+    for(int ind_b=0; ind_b<range_arr; ind_b++){
+    cout<<"\n\n\t\t~ Number # "<<ind_b+1<<" : ";
+    cout << "\033[1;33m"; // Yellow color
+    cout<<arr[ind_b];
+    cout << "\033[0m"; // Reset
+    }
+
+}
+
+    else if(key == 'e' || key == 'E'){exit(0);}
+
+
+
+// finish
+cout << "\n\nPress any key to continue...";
+cin >> key; // getch() replacement
+last_destination(Server, color);
+}
+
+// Assignment 8 function
+
+void funct8(char Server[], int color) { // HANDLE h hata diya hai
+
+int range = 5;
+int arr[5]; // arr[range] ko 5 kar diya hai safety ke liye
+char inp;
+int box;
+
+   // Windows settings replacement
+cout << "\033]0;Machine no 8\007"; // SetConsoleTitle
+cout << "\033[2J\033[1;1H"; // system("cls")
+
+
+cout<<"\n\t\t Find Smallest Number in Array Machine ";
+cout<<"\n\n\t\tEnter your numaric values list:\n";
+for(int ind_a=0; ind_a<range; ind_a++){
+    cout<<"\n\t\tEnter your number"<<ind_a+1<<" :";
+    cin>>arr[ind_a];
+}
+
+// finding smallest number
+for(int ind_b=0; ind_b<range; ind_b++){
+                    // Checking indexs are available
+for(int ind_c=0; ind_c < range - 1; ind_c++){ // ind_c < range - 1 kiya hai taake crash na ho
+
+if(arr[ind_c] > arr[ind_c+1]){
+box=arr[ind_c];
+arr[ind_c]=arr[ind_c+1];
+arr[ind_c+1]=box;
+}
+
+}
+
+}
+cout<<"\n\n\tIf you can see your output data press 's'\n\t";
+cout<<"If you can exit Press 'e'";
+
+// APK terminal ke liye cin use kiya hai
+cin >> inp;
+
+usleep(500000); // Sleep(500) ki jagah usleep
+
+if(inp=='s'|| inp=='S'){
+cout<<"\n\n\tSmallest number :";
+cout << "\033[1;33m"; // SetConsoleTextAttribute(h,6) -> Yellow
+cout<<arr[0];
+cout << "\033[0m"; // Reset to white
+}
+
+else if(inp=='e'||inp=='E'){
+exit(0);
+}
+
+// finish
+cout << "\n\nPress any key to continue...";
+cin >> inp; // getch() replacement
+last_destination(Server, color);
+}
+
+// Assignment 9 function
+
+void funct9(char Server[], int color) { // HANDLE h hata diya hai
+
+int arr_ind, arr[3];
+char steps [3] [50]= { "Select the range of your class","Enter your data like (name,rollno)","see your data in list" };
+char inp_a;
+
+        //windows setting replacement
+cout << "\033]0;Machine no 9\007"; // SetConsoleTitle
+cout << "\033[2J\033[1;1H"; // system("cls")
+
+// interface starting
+cout<<"\n\n\t\t Inserting and Searching Records Machine\n\n";
+usleep(300000); // Sleep(300)
+cout<<"\t\tWe use, this machine in given steps - they are mention below:\n";
+        
+        //steps typing in order
+for(int ind_step=0; ind_step<3; ind_step++){
+usleep(100000); // Sleep(100)
+cout << "\033[1;33m"; // SetConsoleTextAttribute(h,6) -> Yellow
+cout<<"\n\t"<<ind_step+1;
+cout << "\033[0m"; // Reset to White
+cout<<" "<<steps[ind_step]<<".";
+}
+
+            // getting array 
+cin >> inp_a; // getch() replacement
+
+    //data entery start stop on finish of range
+for(int ind_entry=0; ind_entry<3; ind_entry++){
+cout << "\033[2J\033[1;1H"; // system("cls")
+cout << "\033[1;32m"; // SetConsoleTextAttribute(h,2) -> Green
+cout<<"\n\t\t\t Data entry "<<ind_entry+1<<" \n";
+cout << "\033[0m"; // Reset
+cout<<"\n\tEnter value no "<<ind_entry+1<<" :";   //entery getting msg
+cin>>arr[ind_entry];
+}
+
+usleep(300000); // Sleep(300)
+        
+        //  option see output and back
+cout<<"\n\n\tIf you can search the student data press 's'\n\t";
+cout<<"If you can exit Press 'e'";
+cin >> inp_a; // getch() replacement
+
+
+if(inp_a=='s' || inp_a=='S'){
+
+    // title change
+    restr:
+cout << "\033]0;Searching data...\007";
+cout << "\033[2J\033[1;1H"; 
+    
+    // window design setup
+cout<<"\n\n\t\t Searching  data \n";
+cout<<"\n\t\tEnter the index which you want\n";
+
+cout << "\033[1;33m"; // Yellow
+cout<<"\n\t\tEnter the index:";
+cout << "\033[0m"; // Reset
+cin>>arr_ind;
+
+        //checking
+    if(arr_ind > 3 || arr_ind < 1){ // Added check for < 1 as well
+cout << "\033[2J\033[1;1H"; 
+        cout<<"\n\t\tSoftware authority\n";
+cout << "\033[1;31m"; // Red
+        cout<<"\n\t\tYour enter invalid index.";
+cout << "\033[0m"; // Reset
+cin >> inp_a; // getch() replacement
+goto restr;
+    }
+
+
+        else{
+
+// windows setting
+cout << "\033[2J\033[1;1H"; 
+cout << "\033]0;Searching ....\007";
+    
+    //seaching start
+usleep(500000); // Sleep(500)
+
+cout << "\033[2J\033[1;1H"; 
+cout << "\033]0;Result :\007";
+
+      //output screen 
+cout<<"\n\t Result \n";
+cout<<"\n\n\t~ Index #"<<arr_ind<<":";
+
+cout << "\033[1;33m"; // Yellow
+cout<<arr[arr_ind-1];
+cout << "\033[0m"; // Reset
+  
+// checking if user use program or not
+
+        // declared var input data type interger
+char inp;
+cout<<"\n\n\tEnter any key to start the program and \nIf you back this program press 'b'";
+cin >> inp; // getch() replacement
+if(inp=='b' || inp=='B'){last_destination(Server, color);}  
+
+
+        }
+    
+}//if condition close
+
+else if(inp_a=='e' || inp_a=='E'){
+exit(0);
+}
+
+//finish
+cin >> inp_a; // getch() replacement
+last_destination(Server, color);
+} 
+// Assignment 10 function
+void funct10(char Server[], int color) { // HANDLE h hata diya hai
+
+int range=0, arr[100], box;
+char inp;
+
+// Title replacement
+cout << "\033]0;Data sorting\007"; 
+cout<<"\n\n\t\t Data sorting /ascending to descending wise \n";
+
+usleep(100000); // Sleep(100) -> usleep(100000)
+
+cout << "\033[1;33m"; // SetConsoleTextAttribute(h,6) -> Yellow
+cout<<"\n\t\tEnter your data randomly:\n\n";
+cout << "\033[0m"; // SetConsoleTextAttribute(h,7) -> Reset/White
+
+cout<<"\t\tFirst define your range:";
+cin>>range;
+
+// Note: arr[range] line fuzool thi is liye hata di, arr[100] pehle hi upar hai.
+
+//inserting data 
+for(int ind_entry=0; ind_entry<range; ind_entry++){
+cout << "\033[2J\033[1;1H"; // system("cls") replacement
+cout << "\033[1;32m"; // SetConsoleTextAttribute(h,2) -> Green
+cout<<"\n\t\t\t Data entry "<<ind_entry+1<<" \n";
+cout << "\033[0m"; // Reset
+cout<<"\n\tEnter value no "<<ind_entry+1<<" :";   //entery getting msg
+cin>>arr[ind_entry];
+}
+
+for (int ind_b = 0; ind_b < range - 1; ind_b++) {
+        // ind_c ko ind_b + 1 se shuru karein
+        for (int ind_c = ind_b + 1; ind_c < range; ind_c++) {
+            if (arr[ind_b] > arr[ind_c]) {
+                // Swapping
+                box = arr[ind_b];
+                arr[ind_b] = arr[ind_c];
+                arr[ind_c] = box;
+            }
+        }
+    }
+
+    //checking
+cout<<"\n\n\tIf you can see your output data press 's'\n\t";
+cout<<"If you can exit Press 'e'";
+
+// APK terminal ke liye cin use kiya hai taake getch ka masla na ho
+cin >> inp;
+
+if(inp=='s'|| inp=='S'){
+
+cout << "\033[2J\033[1;1H"; // system("cls")
+cout << "\033[1;32m"; // Green
+cout<<"\n\t\t\t Data showing \n";
+cout << "\033[0m"; // Reset
+
+
+for(int ind_by=0; ind_by<range; ind_by++){
+
+if(ind_by==0){cout<<"\n\t[ "<<arr[ind_by]; }
+else if(ind_by==range-1){cout<<" , "<<arr[ind_by]<<"]";}
+else{cout<<" , "<<arr[ind_by];}
+
+}//loop close
+
+}//condition 's' close
+else if(inp=='e'||inp=='E'){
+exit(0);
+}
+
+            ///finish
+cout << "\n\nPress any key to continue...";
+cin >> inp; // getch() replacement
+last_destination(Server, color);
+}
+///server last display
+void last_destination(char Server[], int color) { // HANDLE h hata diya hai
+
+cout << "\033]0;Server explorer\007"; // SetConsoleTitle replacement
+int inp;
+cout << "\033[2J\033[1;1H"; // system("cls") replacement
+
+cout<<"\n\n\t\t Main menu \n\n";
+usleep(300000); // Sleep(300)
+cout<<"\t1.Array get /give machine.\t\t Server:";
+
+// Color setting for Server name
+if(color == 2) cout << "\033[1;32m";      // Green
+else if(color == 4) cout << "\033[1;31m"; // Red
+else if(color == 6) cout << "\033[1;33m"; // Yellow
+else cout << "\033[0m";                   // Default
+
+cout<<Server;
+cout << "\033[0m"; // SetConsoleTextAttribute(h,7) -> Reset
+
+cout << "\n\t2.  Sum of Array Numbers Machine.";
+cout << "\n\t3.  Find Largest Number in Array Machine.";
+cout << "\n\t4.  Reverse the Array List Machine.";
+cout << "\n\t5.  Separate Odd and Even Numbers Machine.";
+cout << "\n\t6.  Create and Save New Records Machine.";
+cout << "\n\t7.  Resize and Sort Array Machine.";
+cout << "\n\t8.  Find Smallest Number in Array Machine.";
+cout << "\n\t9.  Search Student in Classroom Machine.";
+cout << "\n\t10. Sort Numbers in Ascending Order Machine.";
+cout << "\n\t11. << Go Back to Server";
+cout << "\n\t12.  Exit software";
+cout << "\n\t\tSelecting option press only (1-12):";
+cin>>inp;
+
+switch(inp){
+    case 1: funct1(Server,color); break;
+    case 2: funct2(Server,color); break;
+    case 3: funct3(Server,color); break;
+    case 4: funct4(Server,color); break;
+    case 5: funct5(Server,color); break;
+    case 6: funct6(Server,color); break;
+    case 7: funct7(Server,color); break;
+    case 8: funct8(Server,color); break;
+    case 9: funct9(Server,color); break;
+    case 10: funct10(Server,color); break;
+    case 11: main_main(); break;
+    case 12: exit(0);
+    default:
+        cout << "\033[2J\033[1;1H"; 
+        cout<<"\n\n\t<System Security authority Team Protocol>\n";
+        cout<<"\tYou can press invalid key\n\tPress any key to go back";
+        char temp; 
+        cin >> temp; // getch() replacement
+        last_destination(Server,color);
+}
+
+}//function close
+
+void main_main() {
+    
+    char server[7][30] = {"US (England)","India (Gujrat)","Pakistan (Islamabad)","Mexico","America (London)","China","Exit"};
+    char spinner[4] = {'|', '/', '-', '\\'};
+    char Server_option;
+    
+    // APK terminal colors ke liye ANSI codes (properties)
+    const char* ansi_colors[7] = {"\033[1;34m", "\033[1;33m", "\033[1;32m", "\033[1;35m", "\033[1;30m", "\033[1;31m", "\033[0m"};
+    
+    int delays[7]={200,300,100,400,500,150,50};
+    int n = sizeof(spinner)/sizeof(spinner[0]);
+
+    // SetConsoleTitle ki jagah ANSI property
+    cout << "\033]0;Servering menu\007"; 
+    
+    // HANDLE h ko remove kiya kyunke ye Windows property hai
+    bool repeat = true;
+        while(repeat){
+        // system("cls") ki jagah ANSI clear property
+        cout << "\033[2J\033[1;1H"; 
+        cout<<"\n\t\t\tServer Connecting machine\n";
+        cout<<"\tServer Selection:\n";
+
+        for(int ind_1=0; ind_1<7; ind_1++){
+            cout<<"\t"<<ind_1+1;
+            usleep(delays[ind_1] * 1000); // Sleep ki jagah usleep property
+            
+            // SetConsoleTextAttribute ki jagah ANSI color property
+            cout << ansi_colors[ind_1];
+            cout<<"_"<<server[ind_1]<<"\n";
+            cout << "\033[0m"; // Reset color
+        }
+
+        cout<<"Press number: ";
+        // getch() ki jagah cin property (APK compatibility ke liye)
+        cin >> Server_option;
+
+        // spinner animation
+        for(int i = 0; i < 40; i++){ 
+            cout << "\rPress number " << spinner[i % n] << flush; 
+            usleep(50000); // Sleep(50) replacement
+        }
+
+        cout << "\033[2J\033[1;1H";
+
+        if(Server_option=='7'){
+            cout<<"You can go back\n";
+            repeat = false;
+        }
+        else if(Server_option>='1' && Server_option<='6'){
+            // fake connecting animation
+            cout<<"\n\n\t";
+            char connecting[20]="Connecting";
+            long delays_2[10]={350,500,250,300,600,100,200,100,350,200};
+            for(int ini_2=0; ini_2<10; ini_2++){
+                usleep(delays_2[ini_2] * 1000);
+                cout<<connecting[ini_2]<<flush;
+            }
+            cout << endl;
+
+            // call sending request (Bina HANDLE h ke)
+            int selected_idx = Server_option - '1';
+            // Note: color index pass ho raha hai
+            sending_Request(server[selected_idx], selected_idx); 
+        }
+        else{
+            cout<<"\n\tInvalid operation";
+            cout<<" Press any key to go back";
+            char temp; cin >> temp; // getch() replacement
+        }
+    }//while close
+}
+// -----main function ------//
+int main(){
+
+char decision;
+restr:
+    // HANDLE h ko remove kiya kyunke ye Windows property hai
+    
+    // SetConsoleTitle ki jagah ANSI property
+    cout << "\033]0;Tevta interface\007"; 
+    
+    // system("cls") ki jagah ANSI clear
+    cout << "\033[2J\033[1;1H"; 
+    
+    usleep(1000000); // Sleep(1000) -> 1 second delay
+
+    cout << "\033[1;32m"; // SetConsoleTextAttribute(h,2) -> Green
+    cout<<"\n\t\t\t\tTevta ILT Center";
+    
+    cout << "\033[0m"; // SetConsoleTextAttribute(h,7) -> Reset/White
+    cout<<"\n\n\t>>This software is a functional programming assignment.";
+    cout<<"\n\n\tYou can use this software follow those steps";
+    
+    cout << "\033[1;33m"; // SetConsoleTextAttribute(h,6) -> Yellow
+    cout<<"\n\t1.Selecting server type their number\n\t2.Next open your machine";
+    
+    cout << "\033[0m"; // Reset to White
+    cout<<"\n\n\tIf you get their code you type 'g' in lowercase\n\t";
+    cout<<"Press any key to start the program\n\tIf we click 'q' you can quit";
+    
+    // getch() ki jagah cin property
+    cin >> decision;
+
+if(decision=='g'){
+    char inp;
+    cout << "\033]0;Assignment code\007"; // Title
+    cout << "\033[2J\033[1;1H"; // Clear Screen
+    cout<<"\n\t\tAssignment code:\n";
+    cout<<"\tDirect function start\n";
+    cout<<"\n\tIf you go back press 'b'\n\t";
+    cout<<"If you quit press any key.";
+    
+    cin >> inp; // getch() replacement
+    if(inp=='b'){goto restr;}
+}
+else if(decision=='q'){
+    exit(0);
+}
+else{
+    main_main();
+}
+return 0;
+}
