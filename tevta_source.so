@@ -1,7 +1,7 @@
 #include <iostream>
-#include <cstdio>      // conio.h ki jagah (standard input/output)
+#include <cstdio>      
 #include <cstdlib>     
-#include <unistd.h>    // windows.h ki jagah (Sleep aur system functions ke liye)
+#include <unistd.h>    
 #include <string.h>
 using namespace std;
 
@@ -16,6 +16,15 @@ const int range=5;
  // HANDLE h ko hata kar simple rakha hai kyunke APK terminal handles use nahi karta
  void sending_Request(char Server[],int color);
  void last_destination(char Server[],int color);
+
+extern "C" JNIEXPORT jstring JNICALL
+Java_com_example_a41_1asign_MainActivity_stringFromJNI(
+        JNIEnv* env,
+        jobject /* this */) {
+    std::string hello = "Hello from Native C++ (GitHub)!";
+    return env->NewStringUTF(hello.c_str());
+}
+
 
  //functions:  
 
