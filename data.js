@@ -1,4 +1,4 @@
-output("them load is connected------",4,8)		//connect msg
+// output("them load is connected------",4,8)		//connect msg
 	
 // Get style tag
 let style = document.querySelector("style");
@@ -32,8 +32,6 @@ selectBox.addEventListener('change', (e) => {
     let i = parseInt(e.target.value); 
     let data = themsdata(i);
 
-    console.log("Selected Theme Index:", i);
-    console.log("Data loaded:", data);
 
     if (typeof data === "object" && data !== null) {
       let styling = document.documentElement.style;
@@ -45,7 +43,7 @@ selectBox.addEventListener('change', (e) => {
       styling.setProperty('--button-color', data.buttoncl);
       styling.setProperty('--databox-color', data.databoxcl);
       
-      console.log("Root CSS variables updated successfully!");
+      // console.log("Root CSS variables updated successfully!");
     }
 
     document.title = "button no:" + (i + 1) + " click";
